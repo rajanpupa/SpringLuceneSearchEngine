@@ -9,7 +9,7 @@
 </head>
 <body>
 	<div id="topbar">
-		<a href="admin">Login</a>
+		<a href="admin">Admin</a>
 	</div>
 	<h3>The Search</h3>
 	<form:form method="post" action="">

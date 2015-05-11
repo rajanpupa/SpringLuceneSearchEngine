@@ -54,4 +54,9 @@ public class WelcomeController {
 		System.out.println("WelcomeController : Size of documentList is " + webDocumentList.size());
 		return model1;
     }
+	
+	@RequestMapping("/403")
+    public String error403(Model model) {
+		return "403";
+    }
 }
