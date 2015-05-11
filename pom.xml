@@ -9,15 +9,37 @@
 	<url>http://maven.apache.org</url>
 
 	<properties>
-		<org.springframework.version>3.2.0.RELEASE</org.springframework.version>
-		<spring-security.version>3.2.0.RELEASE</spring-security.version>
+		<servlet.version>3.1.0</servlet.version>
 		<jstl.version>1.2</jstl.version>
+		<org.springframework.version>4.1.0.RELEASE</org.springframework.version>
+		<spring-security.version>3.2.0.RELEASE</spring-security.version>
 		<mysql.connector.version>5.1.30</mysql.connector.version>
 		<!-- <lucene.core.version>4.8.1</lucene.core.version> -->
 		<lucene.core.version>3.6.1</lucene.core.version>
 	</properties>
 
 	<dependencies>
+
+		<!-- Servlet -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>${servlet.version}</version>
+		</dependency>
+		<!-- jstl for jsp page -->
+		<dependency>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+			<version>${jstl.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jsp-api</artifactId>
+			<version>2.0</version>
+			<scope>provided</scope>
+		</dependency>
+
+
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -70,13 +92,11 @@
 			<artifactId>spring-security-taglibs</artifactId>
 			<version>${spring-security.version}</version>
 		</dependency>
-
-		<!-- jstl for jsp page -->
-		<!-- <dependency>
-			<groupId>jstl</groupId>
-			<artifactId>jstl</artifactId>
-			<version>${jstl.version}</version>
-		</dependency> -->
+		<dependency>
+			<groupId>taglibs</groupId>
+			<artifactId>standard</artifactId>
+			<version>1.1.2</version>
+		</dependency>
 
 		<!-- connect to mysql -->
 		<dependency>
@@ -84,14 +104,14 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>${mysql.connector.version}</version>
 		</dependency>
-		
+
 		<!-- lucene core version -->
 		<dependency>
-            <artifactId>lucene-core</artifactId>
-            <groupId>org.apache.lucene</groupId>
-            <type>jar</type>
-            <version> ${lucene.core.version} </version>
-        </dependency>
+			<artifactId>lucene-core</artifactId>
+			<groupId>org.apache.lucene</groupId>
+			<type>jar</type>
+			<version> ${lucene.core.version} </version>
+		</dependency>
 
 		<dependency>
 			<groupId>org.jsoup</groupId>
@@ -101,15 +121,36 @@
 	</dependencies>
 
 	<build>
-		<finalName>SpringSecurityHelloWorld</finalName>
+		<finalName>SpringLuceneSearchEngine</finalName>
+		<!-- Java resources -->
+		<sourceDirectory>src/main/java</sourceDirectory>
+		<testSourceDirectory>src/test/java</testSourceDirectory>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+			</resource>
+		</resources>
+		<testResources>
+			<testResource>
+				<directory>src/test/resources</directory>
+			</testResource>
+		</testResources>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.5.1</version>
+				<version>3.1</version>
 				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
+					<source>1.7</source>
+					<target>1.7</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<warSourceDirectory>WebContent</warSourceDirectory>
+					<failOnMissingWebXml>true</failOnMissingWebXml>
 				</configuration>
 			</plugin>
 			<plugin>

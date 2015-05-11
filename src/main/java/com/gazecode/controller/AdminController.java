@@ -30,6 +30,7 @@ public class AdminController {
 	
 	@RequestMapping("/admin")
 	public ModelAndView index(Model model) {
+		System.out.println("---------------/admin request handeling...........");
 		ModelAndView model1 = new ModelAndView();
 		model1.setViewName("search/admin");
 		// model1.addObject(toIndexURL);
@@ -42,7 +43,8 @@ public class AdminController {
 	public ModelAndView addToIndexURL(
 			@ModelAttribute("toIndexURL") SimpleFormString toIndexURL,
 			BindingResult result) {
-
+		
+		System.out.println("............./admin post method handeling........");
 		String url = toIndexURL.getQuery();
 
 		ModelAndView model1 = new ModelAndView("search/admin", "command",
