@@ -79,14 +79,14 @@ public class AdminController {
 		return model1;
 	}
 
-	@RequestMapping("/test")
-	public ModelAndView test(Model model) {
-		ModelAndView model1 = new ModelAndView();
-
-		model1.addObject("message", "Test Successful");
-		model1.setViewName("search/test");
-		return model1;
-	}
+//	@RequestMapping("/test")
+//	public ModelAndView test(Model model) {
+//		ModelAndView model1 = new ModelAndView();
+//
+//		model1.addObject("message", "Test Successful");
+//		model1.setViewName("search/test");
+//		return model1;
+//	}
 
 	@RequestMapping(value = { "/welcome**" }, method = RequestMethod.GET)
 	public ModelAndView defaultPage() {
