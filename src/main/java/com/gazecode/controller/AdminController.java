@@ -19,6 +19,7 @@ import com.gazecode.service.lucene.URLIndexer;
 
 @Controller
 @SessionAttributes
+@RequestMapping("/admin")
 public class AdminController {
 
 	@Autowired

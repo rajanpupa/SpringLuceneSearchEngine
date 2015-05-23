@@ -5,7 +5,7 @@
 	http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
 
 	<bean id="searchQuery" class="com.gazecode.beans.SimpleFormString">
-		<property name="query" value="Search Here..." />
+		<property name="query" value="" />
 	</bean>
 
 	<bean id="toIndexURL" class="com.gazecode.beans.SimpleFormString">
